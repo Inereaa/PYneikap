@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neikap</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/carrito.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "5cONohJ1nYpbsZtKW",
+            });
+        })();
+    </script>
+</head>
+<body>
+    <nav>
+        <section class="navegador">
+            <a href="index.html"><img id="logo" src="logo.png" alt="logo"></a>
+            <h1> N E I K A P </h1>
+            <div class="navegador__links">
+                <a href="index.html">Inicio</a>
+                <a href="login.html" id="cerrarSesion">Cerrar sesión</a>
+            </div>
+        </section>
+    </nav>
+
+    <main>
+        <section id="carrito-contenido">
+            <h2>Productos de tu carrito</h2>
+            <div id="lista-carrito">
+                <!-- los productos añadidos al carrito se mostrarán aquí -->
+            </div>
+            
+            <div id="acciones-carrito">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" placeholder="Introduce tu correo" required><br>
+
+                <label for="codigo">Código de seguridad:</label>
+                <span id="codigo"></span>
+                <input type="text" id="codigo-input" placeholder="Introduce el código" required><br>
+
+                <button id="realizarPedido" class="btn">Realizar pedido</button>
+            </div>
+        </section>
+        
+        <script src="../js/carrito.js"></script>
+    </main>
+</body>
+</html>

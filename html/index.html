@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neikap</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav>
+        <section class="navegador">
+            <a href="#"><img id="logo" src="logo.png" alt="logo"></a>
+            <h1> N E I K A P </h1>
+            <div class="navegador__links">
+                <a href="carrito.html" id="carrito">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="carrito" style="width: 25px; height: 25px; vertical-align: middle;">
+                    <span id="contador-carrito">0</span>
+                </a>
+                <a href="#">Inicio</a>
+                <a href="login.html" id="cerrarSesion">Cerrar sesión</a>
+            </div>
+        </section>
+    </nav>
+    <main>
+        <section class="filtros">
+            <div class="categorias">
+                <label for="categoria">Filtrar por categoría: </label>
+                <select id="categoria">
+                    <option value="c">Selecciona una categoría</option>
+                    <option value="lip_liner">Delineador de labios</option>
+                    <option value="lipstick">Pintalabios</option>
+                    <option value="foundation">Base</option>
+                    <option value="eyeliner">Delineador de ojos</option>
+                    <option value="eyeshadow">Sombra de ojos</option>
+                    <option value="blush">Colorete</option>
+                    <option value="bronzer">Bronceador</option>
+                    <option value="mascara">Máscara de pestañas</option>
+                    <option value="eyebrow">Cejas</option>
+                    <option value="nail_polish">Esmalte de uñas</option>
+                </select>
+            </div>
+    
+            <div>
+                <label for="precio">Ordenar por precio:</label>
+                <select id="precio">
+                    <option value="desc">Descendente</option>
+                    <option value="asc">Ascendente</option>
+                </select>
+            </div>
+        </section>
+
+        <div id="detalles">
+            <div id="detalles__ventana">
+                <!-- aquí van los detalles de los productos -->
+            </div>
+        </div>
+            
+        <div id="respuestaDelServidor"></div>
+        <script src="../js/funciones.js"></script>
+    </main>
+</body>
+</html>
