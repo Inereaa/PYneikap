@@ -151,7 +151,10 @@ body {
     border-radius: 10px;
     text-align: center;
 
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #detalles #detalles__ventana button {
@@ -170,7 +173,7 @@ body {
     cursor: pointer;
     color: white;
     background-color: #ff4d4d;
-    
+
     margin-top: 10px;
     padding: 5px 10px;
 
@@ -179,9 +182,11 @@ body {
     text-decoration: none;
 }
 
-#detalles #detalles__ventana button:hover,  #detalles #detalles__ventana a:hover {
+#detalles #detalles__ventana button:hover,
+#detalles #detalles__ventana a:hover {
     background-color: #ff0000;
 }
+
 
 /* PRODUCTOS */
 #respuestaDelServidor {
