@@ -28,19 +28,52 @@ body {
 
     width: 100vw;
     height: 11vh;
+    border-radius: 0px 0px 50px 50px;
+    border-bottom: 2px solid #f794a5;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    animation: barraSuperior 1s ease-out forwards;
+}
+
+@keyframes barraSuperior {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .navegador img {
     width: 150px;
 }
 
+#logo {
+    animation: logo 3s ease-in-out infinite;
+}
+
+@keyframes logo {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(0deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
 .navegador h1 {
+    font-family: 'Georgia', serif;
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 700;
+    letter-spacing: 15px;
 }
 
 .navegador__links {
@@ -98,6 +131,23 @@ body {
 
     margin-top: 40px;
     margin-bottom: 40px;
+
+    opacity: 0;
+    transform: scale(0.5);
+    animation: filtros 0.88s ease-out forwards;
+}
+
+@keyframes filtros {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .categorias label, label[for="precio"] {
@@ -217,7 +267,22 @@ body {
     flex-direction: column;
     justify-content: space-between;
 
+    opacity: 0;
+    transform: translateY(20px);
+
+    animation: productos 0.6s ease-out forwards;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes productos {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .producto:hover {
