@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    const listaCarrito = document.getElementById('lista-carrito');
+    const listaCarrito = document.getElementsByClassName('carrito__lista')[0];
     let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // obtiene el carrito desde localStorage
 
     // función para guardar el carrito en localStorage
