@@ -187,10 +187,10 @@ body {
 #respuestaDelServidor {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
     justify-content: center;
     align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
 }
 
 .producto {
