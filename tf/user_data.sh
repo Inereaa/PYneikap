@@ -1,11 +1,16 @@
 
 #!/bin/bash
-# Actualizo los paquetes e instalo apache y git
+
+# Actualizo e instalo docker
 sudo apt-get update -y
-sudo apt-get install apache2 git -y
+sudo apt-get install docker.io -y
 
-# Clono mi repositorio donde está mi página web
-git clone https://github.com/Inereaa/PYneikap.git /var/www/html
+# Inicio el servicio de docker
+sudo systemctl start docker
+sudo systemctl enable docker
 
-# Reiniciamos Apache para aplicar los cambios
-sudo systemctl restart apache2
+# Construyo la imagen del dockerfile
+sudo docker build -t apache-server /var/www/html
+
+# Ejecuto el contenedor y lo mapeo al puerto 80
+sudo docker run -d -p 80:80 apache-server

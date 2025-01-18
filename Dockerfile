@@ -1,12 +1,16 @@
 
-# Usamos una imagen base de Apache
-FROM httpd:2.4
+# Uso una imagen base de Ubuntu
+FROM ubuntu:20.04
 
-# Copiamos los archivos de la página web al directorio de Apache
-COPY ./html/ /usr/local/apache2/htdocs/
-COPY ./css/ /usr/local/apache2/htdocs/css/
-COPY ./js/ /usr/local/apache2/htdocs/js/
-COPY ./db/ /usr/local/apache2/htdocs/db/
+# Instalo apache y git
+RUN apt-get update -y && \
+    apt-get install -y apache2 git
 
-# Expone el puerto 80
+# Clono mi repositorio
+RUN git clone https://github.com/Inereaa/PYneikap.git /var/www/html
+
+# Expongo el puerto 80 para acceder al servidor web
 EXPOSE 80
+
+# Inicio Apache cuando el contenedor se ejecute
+CMD ["apachectl", "-D", "FOREGROUND"]
