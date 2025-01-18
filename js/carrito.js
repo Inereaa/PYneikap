@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 carrito.length = 0; // vaciar carrito después de realizar el pedido
                 guardarCarrito(); // guardar cambios en localStorage
                 actualizarCarrito();
-                actualizarContadorCarrito();
             }, (error) => {
                 alert('hubo un error al enviar el correo: ' + error.text);
             });
@@ -150,5 +149,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     generarCodigo(); // generar el código de seguridad al cargar la página
     actualizarCarrito(); // actualizar el carrito al cargar la página
-    actualizarContadorCarrito(); // actualizar el contador al cargar la página
 });
