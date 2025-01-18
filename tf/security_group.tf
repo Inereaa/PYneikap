@@ -2,7 +2,7 @@
 # + Grupo de seguridad
 resource "aws_security_group" "sg" {
   name        = "sg"
-  description = "Permitir todo el tráfico HTTP y SSH"
+  description = "Permite todo HTTP y SSH"
   vpc_id      = aws_vpc.mi_vpc.id
 
   egress {
