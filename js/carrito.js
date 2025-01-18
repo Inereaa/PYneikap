@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // función para realizar el pedido
     document.getElementById('realizarPedido').addEventListener('click', () => {
-        const codigoInput = document.getElementById('codigo-input').value;
+        const codigoInput = document.getElementById('boot').value;
         const codigoGenerado = document.getElementById('codigo').textContent;
 
         if (!codigoInput) {
