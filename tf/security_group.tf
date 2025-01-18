@@ -1,7 +1,7 @@
 
 # + Grupo de seguridad
-resource "aws_security_group" "allow_all" {
-  name        = "allow_all"
+resource "aws_security_group" "sg" {
+  name        = "sg"
   description = "Permitir todo el tráfico HTTP y SSH"
   vpc_id      = aws_vpc.mi_vpc.id
 
