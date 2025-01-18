@@ -1,7 +1,7 @@
 
 # + Instancia EC2
 resource "aws_instance" "mi_instancia" {
-  ami           = "ami-0c55b159cbfafe1f0"  # AMI para Ubuntu
+  ami           = "ami-0866a3c8686eaeeba"
   instance_type = "t2.micro"
   key_name      = var.key_name
   subnet_id     = aws_subnet.mi_subred_publica.id
