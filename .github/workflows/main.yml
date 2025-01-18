@@ -34,6 +34,16 @@ jobs:
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
 
+      # INSTALAR DOCKER
+      - name: Instalar Docker
+        run: |
+          cd tf
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          sudo systemctl start docker
+          sudo systemctl enable docker
+          sudo usermod -aG docker $USER
+          
       # INSTALAR TERRAFORM
       - name: Setup terraform
         run: |
@@ -76,6 +86,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
+
+      # INSTALAR DOCKER
+      - name: Instalar Docker
+        run: |
+          cd tf
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          sudo systemctl start docker
+          sudo systemctl enable docker
 
       # INSTALAR TERRAFORM
       - name: Setup terraform
