@@ -1,63 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neikap</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/carrito.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "5cONohJ1nYpbsZtKW",
+            });
+        })();
+    </script>
 </head>
 <body>
     <nav>
         <section class="navegador">
-            <a href="#"><img id="logo" src="./docs/logo.png" alt="logo"></a>
+            <a href="../index.html"><img id="logo" src="logo.png" alt="logo"></a>
             <h1> NEIKAP </h1>
             <div class="navegador__links">
-                <a href="./docs/carrito.html" id="carrito">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="carrito" style="width: 25px; height: 25px; vertical-align: middle;">
-                    <span id="contador-carrito">0</span>
-                </a>
-                <a href="#">Inicio</a>
-                <a href="./docs/login.html" id="cerrarSesion">Cerrar sesión</a>
+                <a href="../index.html">Inicio</a>
+                <a href="login.html" id="cerrarSesion">Cerrar sesión</a>
             </div>
         </section>
     </nav>
+
     <main>
-        <section class="filtros">
-            <div class="categorias">
-                <label for="categoria">Filtrar por categoría: </label>
-                <select id="categoria">
-                    <option value="c">Selecciona una categoría</option>
-                    <option value="lip_liner">Delineador de labios</option>
-                    <option value="lipstick">Pintalabios</option>
-                    <option value="foundation">Base</option>
-                    <option value="eyeliner">Delineador de ojos</option>
-                    <option value="eyeshadow">Sombra de ojos</option>
-                    <option value="blush">Colorete</option>
-                    <option value="bronzer">Bronceador</option>
-                    <option value="mascara">Máscara de pestañas</option>
-                    <option value="eyebrow">Cejas</option>
-                    <option value="nail_polish">Esmalte de uñas</option>
-                </select>
+        <section class="carrito">
+            <h2>Productos de tu carrito</h2>
+            <div class="carrito__lista">
+                <!-- los productos añadidos al carrito se mostrarán aquí -->
             </div>
-    
-            <div>
-                <label for="precio">Ordenar por precio:</label>
-                <select id="precio">
-                    <option value="desc">Descendente</option>
-                    <option value="asc">Ascendente</option>
-                </select>
+            
+            <div class="carrito__pedir">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" placeholder="Introduce tu correo" required><br>
+
+                <label for="codigo">Código de seguridad:</label>
+                <span id="codigo"></span>
+                <input type="text" id="boot" placeholder="Introduce el código" required><br>
+
+                <button id="realizarPedido" class="btn">Realizar pedido</button>
             </div>
         </section>
-
-        <div id="detalles">
-            <div id="detalles__ventana">
-                <!-- aquí van los detalles de los productos -->
-            </div>
-        </div>
         
-            
-        <div id="respuestaDelServidor"></div>
-        <!-- aquí salen todos los productos -->
+        <script src="../js/carrito.js"></script>
     </main>
 
     <footer class="footer">
@@ -117,7 +106,6 @@
             </div>
         </div>
     </footer>
-
-    <script src="./js/funciones.js"></script>
+    
 </body>
 </html>
