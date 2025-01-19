@@ -25,7 +25,7 @@ resource "aws_instance" "mi_instancia" {
     sudo git clone https://github.com/Inereaa/PYneikap.git /var/www/html
 
     # Construyo la imagen del dockerfile
-    cd /var/www/html
+    cd /var/www/html/
     sudo docker build -t apache-server .
 
     # Ejecuto el contenedor y le pongo un nombre
