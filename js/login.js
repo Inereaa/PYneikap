@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const existe = users.find(u => u.username == user && u.password == passw);
 
             if (existe) {
-                window.location.href = 'index.html';
+                window.location.href = '../index.html';
             } else {
                 msg.innerHTML = 'Usuario o contraseña incorrectos.';
             }
