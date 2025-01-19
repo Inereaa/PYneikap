@@ -21,5 +21,5 @@ COPY ./db/ /usr/local/apache2/htdocs/db/
 EXPOSE 80
 EXPOSE 3000
 
-# Ejecuto el comando para iniciar apache y json-server
-CMD apache2ctl -D FOREGROUND & json-server --watch /usr/local/apache2/htdocs/db/db.json --port 3000
+# Ejecuto el comando para iniciar el json-server
+CMD json-server --watch /usr/local/apache2/htdocs/db/db.json --port 3000
