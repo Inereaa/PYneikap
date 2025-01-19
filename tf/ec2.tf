@@ -28,8 +28,12 @@ resource "aws_instance" "mi_instancia" {
     cd /var/www/html
     sudo docker build -t apache-server .
 
-    # Ejecuto el contenedor y lo mapeo al puerto 80
+    # Ejecuto el contenedor y le pongo un nombre
     sudo docker run -d -p 80:80 -p 3000:3000 --name neikap apache-server
+
+    # Inicio el json-server en el puerto 3000
+    json-server --watch htdocs/db/db.json --port 3000
+
   EOF
 
   tags = {
