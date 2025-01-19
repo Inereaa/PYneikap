@@ -14,3 +14,13 @@ COPY ./docs/ /usr/local/apache2/htdocs/docs/
 COPY ./css/ /usr/local/apache2/htdocs/css/
 COPY ./js/ /usr/local/apache2/htdocs/js/
 COPY ./db/ /usr/local/apache2/htdocs/db/
+
+# Script para iniciar ambos servicios
+COPY start-services.sh /usr/local/bin/start-services.sh
+RUN chmod +x /usr/local/bin/start-services.sh
+
+# Expongo los puertos para Apache y json-server
+EXPOSE 80 3000
+
+# Uso el script para iniciar ambos servicios
+CMD ["/usr/local/bin/start-services.sh"]
