@@ -33,16 +33,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
-
-      # INSTALAR DOCKER
-      - name: Instalar Docker
-        run: |
-          cd tf
-          curl -fsSL https://get.docker.com -o get-docker.sh
-          sh get-docker.sh
-          sudo usermod -aG docker $USER
-          sudo systemctl start docker
-          sudo systemctl enable docker
           
       # INSTALAR TERRAFORM
       - name: Setup terraform
