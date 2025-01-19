@@ -8,7 +8,7 @@ resource "aws_instance" "mi_instancia" {
   vpc_security_group_ids     = [aws_security_group.sg.id]
   associate_public_ip_address = true
 
-  # Ejecutar el script de user_data (con el contenido de user_data.sh)
+  # Ejecuto mi user_data
   user_data = <<-EOF
     #!/bin/bash
 
@@ -29,11 +29,10 @@ resource "aws_instance" "mi_instancia" {
     sudo docker build -t apache-server .
 
     # Ejecuto el contenedor y lo mapeo al puerto 80
-    sudo docker run -d -p 80:80 --name neikap apache-server
+    sudo docker run -d -p 80:80 -p 3000:3000 --name neikap apache-server
   EOF
 
   tags = {
     Name = "MiInstanciaEC2"
   }
 }
-
