@@ -4,9 +4,10 @@ FROM httpd:2.4
 
 # Instalo node.js y json-server
 RUN apt-get update && \
-    apt-get install -y curl && \
+    apt-get install -y curl gnupg2 lsb-release && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get install -y nodejs && \
+    apt-get install -y npm && \
     npm install -g json-server
 
 # Copio los archivos de la página web al directorio de apache
