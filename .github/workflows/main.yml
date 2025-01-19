@@ -38,11 +38,11 @@ jobs:
       - name: Instalar Docker
         run: |
           cd tf
-          sudo apt-get update
-          sudo apt-get install -y docker.io
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sh get-docker.sh
+          sudo usermod -aG docker $USER
           sudo systemctl start docker
           sudo systemctl enable docker
-          sudo usermod -aG docker $USER
           
       # INSTALAR TERRAFORM
       - name: Setup terraform
@@ -87,15 +87,6 @@ jobs:
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
 
-      # INSTALAR DOCKER
-      - name: Instalar Docker
-        run: |
-          cd tf
-          sudo apt-get update
-          sudo apt-get install -y docker.io
-          sudo systemctl start docker
-          sudo systemctl enable docker
-
       # INSTALAR TERRAFORM
       - name: Setup terraform
         run: |
@@ -114,7 +105,7 @@ jobs:
       # DESCARGAR tf.state
       - name: Descargar estado de Terraform desde S3
         run: |
-          aws s3 cp s3://mi-bucket/terraform.tfstate tf/terraform.tfstate
+          aws s3 cp s3://nmr-bucket/terraform.tfstate tf/terraform.tfstate
 
       # TERRAFORM DESTROY
       - name: TERRAFORM DESTROY
