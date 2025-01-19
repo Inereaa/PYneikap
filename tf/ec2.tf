@@ -1,7 +1,7 @@
 
 # + Instancia EC2
 resource "aws_instance" "mi_instancia" {
-  ami                        = "ami-0866a3c8686eaeeba" # Cambia esta AMI por la que sea adecuada para tu región
+  ami                        = "ami-0866a3c8686eaeeba"
   instance_type              = "t2.micro"
   key_name                   = aws_key_pair.apache_server_ssh.key_name
   subnet_id                  = aws_subnet.mi_subred_publica.id
@@ -27,7 +27,9 @@ resource "aws_instance" "mi_instancia" {
     # Construyo la imagen del dockerfile
     cd /var/www/html
     sudo docker build -t apache-server .
-    
+
+    # Ejecuto el contenedor y lo mapeo al puerto 80
+    sudo docker run -d -p 80:80 --name neikap apache-server
   EOF
 
   tags = {
