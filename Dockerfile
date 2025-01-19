@@ -19,7 +19,7 @@ COPY ./db/ /usr/local/apache2/htdocs/db/
 COPY start-services.sh /usr/local/bin/start-services.sh
 RUN chmod +x /usr/local/bin/start-services.sh
 
-# Expongo los puertos para Apache y json-server
+# Expongo los puertos para pache y json-server
 EXPOSE 80 3000
 
 # Uso el script para iniciar ambos servicios
