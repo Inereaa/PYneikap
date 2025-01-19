@@ -27,9 +27,7 @@ resource "aws_instance" "mi_instancia" {
     # Construyo la imagen del dockerfile
     cd /var/www/html
     sudo docker build -t apache-server .
-
-    # Ejecuto el contenedor y lo mapeo al puerto 80
-    sudo docker run -d -p 80:80 -p 3000:3000 --name neikap apache-server
+    
   EOF
 
   tags = {
