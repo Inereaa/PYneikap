@@ -14,3 +14,16 @@ COPY ./docs/ /usr/local/apache2/htdocs/docs/
 COPY ./css/ /usr/local/apache2/htdocs/css/
 COPY ./js/ /usr/local/apache2/htdocs/js/
 COPY ./db/ /usr/local/apache2/htdocs/db/
+
+# Copio los certificados al directorio de apache
+COPY ./certificate.crt /usr/local/apache2/conf/
+COPY ./ca_bundle.crt /usr/local/apache2/conf/
+COPY ./private.key /usr/local/apache2/conf/
+
+# Habilito el módulo SSL y configuro el puerto 443
+RUN apt-get update && apt-get install -y ssl-cert && \
+    sed -i 's/#LoadModule ssl_module/LoadModule ssl_module/' /usr/local/apache2/conf/httpd.conf && \
+    echo "Include /usr/local/apache2/conf/extra/httpd-ssl.conf" >> /usr/local/apache2/conf/httpd.conf
+
+# Copio mi configuración SSL personalizada
+COPY ./httpd-ssl.conf /usr/local/apache2/conf/extra/
