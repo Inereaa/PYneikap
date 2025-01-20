@@ -16,9 +16,9 @@ COPY ./js/ /usr/local/apache2/htdocs/js/
 COPY ./db/ /usr/local/apache2/htdocs/db/
 
 # Copio los certificados al directorio de apache
-COPY ./certificate.crt /usr/local/apache2/conf/
-COPY ./ca_bundle.crt /usr/local/apache2/conf/
-COPY ./private.key /usr/local/apache2/conf/
+COPY ./tf/certificate.crt /usr/local/apache2/conf/
+COPY ./tf/ca_bundle.crt /usr/local/apache2/conf/
+COPY ./tf/private.key /usr/local/apache2/conf/
 
 # Habilito el módulo SSL y configuro el puerto 443
 RUN apt-get update && apt-get install -y ssl-cert && \
