@@ -14,10 +14,3 @@ COPY ./docs/ /usr/local/apache2/htdocs/docs/
 COPY ./css/ /usr/local/apache2/htdocs/css/
 COPY ./js/ /usr/local/apache2/htdocs/js/
 COPY ./db/ /usr/local/apache2/htdocs/db/
-
-# Copio el script de entrada
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-# Configuro el script como punto de entrada
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
