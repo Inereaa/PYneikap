@@ -26,4 +26,4 @@ RUN apt-get update && apt-get install -y ssl-cert && \
     echo "Include /usr/local/apache2/conf/extra/httpd-ssl.conf" >> /usr/local/apache2/conf/httpd.conf
 
 # Copio mi configuración SSL personalizada
-COPY ./httpd-ssl.conf /usr/local/apache2/conf/extra/
+COPY ./tf/httpd-ssl.conf /usr/local/apache2/conf/extra/
