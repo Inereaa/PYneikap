@@ -19,11 +19,6 @@ resource "aws_instance" "mi_instancia" {
     # Inicio el servicio de docker
     sudo systemctl start docker
     sudo systemctl enable docker
-    
-    # Instalo node.js y json-server
-    sudo apt-get install -y npm
-    sudo apt-get install -y nodejs
-    sudo npm install -g json-server
 
     # Clono el repositorio que contiene mi dockerfile
     sudo apt-get install git -y
