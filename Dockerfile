@@ -23,15 +23,21 @@ COPY ./tf/private.key /usr/local/apache2/conf/
 # Copio mi configuración SSL personalizada
 COPY ./tf/httpd-ssl.conf /usr/local/apache2/conf/extra/
 
-# Habilito el módulo SSL y configuro el puerto 443
-RUN apt-get update && apt-get install -y ssl-cert && \
+# Habilitar los módulos necesarios para el proxy y SSL
+RUN sed -i 's/#LoadModule proxy_module/LoadModule proxy_module/' /usr/local/apache2/conf/httpd.conf && \
+    sed -i 's/#LoadModule proxy_http_module/LoadModule proxy_http_module/' /usr/local/apache2/conf/httpd.conf && \
     sed -i 's/#LoadModule ssl_module/LoadModule ssl_module/' /usr/local/apache2/conf/httpd.conf && \
+    sed -i 's/#LoadModule headers_module/LoadModule headers_module/' /usr/local/apache2/conf/httpd.conf && \
     echo "Include /usr/local/apache2/conf/extra/httpd-ssl.conf" >> /usr/local/apache2/conf/httpd.conf
+
+# Copio un script de inicio para lanzar Apache y json-server
+COPY ./tf/start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
 
 # Expongo los puertos necesarios
 EXPOSE 80
 EXPOSE 443
 EXPOSE 3000
 
-# Instrucción por defecto
-CMD ["httpd-foreground"]
+# Instrucción por defecto: ejecutar el script que inicia Apache y json-server
+CMD ["/usr/local/bin/start.sh"]
