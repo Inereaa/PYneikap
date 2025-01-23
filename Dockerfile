@@ -8,6 +8,9 @@ RUN apt-get update && \
     apt-get install -y nodejs && \
     npm install -g json-server
 
+# Instalar los módulos de proxy y ssl
+RUN apt-get install -y libapache2-mod-proxy-html libapache2-mod-proxy
+
 # Copio los archivos de la página web al directorio de Apache
 COPY ./index.html /usr/local/apache2/htdocs/
 COPY ./docs/ /usr/local/apache2/htdocs/docs/
