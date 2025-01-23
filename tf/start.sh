@@ -1,8 +1,7 @@
-
 #!/bin/bash
 
-# Iniciar json-server en segundo plano en el puerto 3000
+# iniciar el servidor JSON
 json-server --watch /usr/local/apache2/htdocs/db/dbProductos.json --port 3000 &
 
-# Iniciar Apache en primer plano
+# iniciar apache
 httpd-foreground
