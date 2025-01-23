@@ -8,9 +8,6 @@ RUN apt-get update && \
     apt-get install -y nodejs && \
     npm install -g json-server
 
-# Instalar los módulos de proxy y ssl
-RUN apt-get install -y libapache2-mod-proxy-html libapache2-mod-proxy
-
 # Copio los archivos de la página web al directorio de Apache
 COPY ./index.html /usr/local/apache2/htdocs/
 COPY ./docs/ /usr/local/apache2/htdocs/docs/
@@ -27,8 +24,7 @@ COPY ./tf/private.key /usr/local/apache2/conf/
 COPY ./tf/httpd-ssl.conf /usr/local/apache2/conf/extra/
 
 # Habilito el módulo SSL y configuro el puerto 443
-RUN sed -i 's/#LoadModule proxy_module/LoadModule proxy_module/' /usr/local/apache2/conf/httpd.conf && \
-    sed -i 's/#LoadModule proxy_http_module/LoadModule proxy_http_module/' /usr/local/apache2/conf/httpd.conf && \
+RUN apt-get update && apt-get install -y ssl-cert && \
     sed -i 's/#LoadModule ssl_module/LoadModule ssl_module/' /usr/local/apache2/conf/httpd.conf && \
     echo "Include /usr/local/apache2/conf/extra/httpd-ssl.conf" >> /usr/local/apache2/conf/httpd.conf
 
@@ -39,4 +35,3 @@ EXPOSE 3000
 
 # Instrucción por defecto
 CMD ["httpd-foreground"]
-
