@@ -35,3 +35,4 @@ EXPOSE 3000
 
 # Instrucción por defecto
 CMD ["httpd-foreground"]
+
