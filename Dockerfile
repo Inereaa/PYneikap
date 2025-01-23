@@ -6,7 +6,10 @@ FROM httpd:2.4
 RUN apt-get update && \
     apt-get install -y npm && \
     apt-get install -y nodejs && \
-    npm install -g json-server
+    npm install -g json-server \
+    apt-get update && apt-get install -y libapache2-mod-proxy-html && \
+    a2enmod proxy && \
+    a2enmod proxy_http
 
 # Copio los archivos de la página web al directorio de Apache
 COPY ./index.html /usr/local/apache2/htdocs/
