@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // se consulta al JSON Server para verificar usuario y contraseña
-            const response = await fetch('http://localhost:3000/users');
+            const response = await fetch('https://neikap.work.gd/api/users');
             if (!response.ok) throw new Error('Error al conectar con el servidor');
 
             const users = await response.json(); // esto obtiene toda la lista de usuarios
