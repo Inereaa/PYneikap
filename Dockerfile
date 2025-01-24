@@ -29,6 +29,9 @@ RUN apt-get update && apt-get install -y ssl-cert && \
     sed -i 's/#LoadModule proxy_http_module/LoadModule proxy_http_module/' /usr/local/apache2/conf/httpd.conf && \
     echo "Include /usr/local/apache2/conf/extra/httpd-ssl.conf" >> /usr/local/apache2/conf/httpd.conf
 
+# Agregar ServerName al archivo httpd.conf
+RUN echo "ServerName neikap.work.gd" >> /usr/local/apache2/conf/httpd.conf
+
 # Copio el script de inicio
 COPY ./tf/start.sh /usr/local/bin/start.sh
 
