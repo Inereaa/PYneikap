@@ -5,7 +5,7 @@ FROM httpd:2.4
 # Instalo Node.js y json-server
 RUN apt-get update && \
     apt-get install -y npm && \
-    apt-get install -y nodejs &&
+    apt-get install -y nodejs
 
 # Copio los archivos de la página web al directorio de Apache
 COPY ./index.html /usr/local/apache2/htdocs/
