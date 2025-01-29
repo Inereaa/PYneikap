@@ -5,8 +5,7 @@ FROM httpd:2.4
 # Instalo Node.js y json-server
 RUN apt-get update && \
     apt-get install -y npm && \
-    apt-get install -y nodejs && \
-    npm install -g json-server
+    apt-get install -y nodejs
 
 # Copio los archivos de la página web al directorio de Apache
 COPY ./index.html /usr/local/apache2/htdocs/
@@ -28,10 +27,9 @@ RUN apt-get update && apt-get install -y ssl-cert && \
     sed -i 's/#LoadModule ssl_module/LoadModule ssl_module/' /usr/local/apache2/conf/httpd.conf && \
     echo "Include /usr/local/apache2/conf/extra/httpd-ssl.conf" >> /usr/local/apache2/conf/httpd.conf
 
-# Expongo los puertos que necesito
+# Expongo los puertos necesarios
 EXPOSE 80
 EXPOSE 443
-EXPOSE 3000
 
 # Instrucción por defecto
 CMD ["httpd-foreground"]
